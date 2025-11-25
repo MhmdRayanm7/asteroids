@@ -3,7 +3,7 @@ import pygame
 
 from shot import Shot
 from player import Player
-from  asteroid import  Asteroid
+from asteroid import  Asteroid
 from constants import SCREEN_WIDTH ,SCREEN_HEIGHT,PLAYER_SHOOT_SPEED
 from logger import log_state
 from asteroidfield import AsteroidField
@@ -52,13 +52,12 @@ def main():
                 log_event("player_hit")
                 print("Game Over!")
                 sys.exit() #to exit
-
-        for ast in asteroids:
-            for sht in shots:
-                if sht.collides_with(ast):
+            for shot in shots:
+                if a.collides_with(shot):
                     log_event("asteroid_shot")
-                    sht.kill()
-                    ast.kill()
+                    shot.kill()
+                    a.split()
+
 
 
         #sceen
