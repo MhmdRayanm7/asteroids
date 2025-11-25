@@ -18,12 +18,13 @@ def main():
     player = Player(x,y)
     while True:
         log_state()
-        for event in pygame.event.get():
+        for event in pygame.event.get():  #for the GUI x button to exit
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
         player.draw(screen)
-        pygame.display.flip()
+        player.update(dt)
+        pygame.display.flip() # rendering method
         dt = clock.tick(60) /1000
 
 
